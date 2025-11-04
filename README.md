@@ -4,7 +4,7 @@ Um aplicativo web full-stack de lista de tarefas (To-Do list) construído com Fl
 
 Este projeto foi desenvolvido com foco em uma arquitetura profissional, separando o back-end (Flask Blueprints) do front-end (Módulos JS).
 
-![Captura de tela do projeto Gestor de Tarefas](./screenshots/Capturar.png) 
+![Captura de tela do projeto Gestor de Tarefas](./screenshots/Capturar.PNG)
 
 ---
 
