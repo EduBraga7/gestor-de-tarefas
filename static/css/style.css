@@ -1,0 +1,332 @@
+/* --- Importação da Fonte --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* --- Reset Global --- */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* --- Variáveis Globais (Paleta de Cores) --- */
+:root {
+    /* Cores principais */
+    --cor-primaria: #007bff;
+    --cor-secundaria: #495057;
+
+    /* Cores de suporte */
+    --cor-fundo: #e9ecef;
+    --cor-container: #ffffff;
+    --cor-texto: #212529;
+    --cor-texto-claro: #ffffff; 
+    --cor-sucesso: #28a745;
+    --cor-perigo: #dc3545;
+    --cor-borda-suave: #e9ecef;
+}
+
+/* --- Estilos Globais (Body e Tipografia) --- */
+body {
+    font-family: 'Inter', Arial, sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 40px 20px 0 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: var(--cor-container);
+    padding: 32px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.03), 
+                0 10px 20px rgba(0,0,0,0.07);
+    flex-grow: 1;
+}
+
+h1 {
+    text-align: center;
+    color: var(--cor-primaria);
+    margin-top: 0;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+h2 {
+    color: var(--cor-texto);
+    font-weight: 600;
+    font-size: 1.25rem;
+    margin-top: 40px;
+    margin-bottom: 16px;
+}
+
+/* --- Formulário (Nova Tarefa) --- */
+.nova-tarefa {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#input-nova-tarefa {
+    flex-grow: 1;
+    padding: 12px;
+    border: 1px solid var(--cor-borda-suave);
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: 'Inter', Arial, sans-serif;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#input-nova-tarefa:focus {
+    outline: none;
+    border-color: var(--cor-primaria);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.3);
+}
+
+#btn-adicionar {
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--cor-texto-claro);
+    background-color: var(--cor-primaria);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s ease;
+}
+
+#btn-adicionar:hover {
+    background-color: #0056b3;
+    transform: scale(1.03);
+}
+
+#btn-adicionar:focus {
+    outline: none;
+    background-color: #0056b3;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.3);
+}
+
+/* --- Listas de Tarefas (Pendentes e Concluídas) --- */
+.lista-de-tarefas {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.lista-de-tarefas li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 10px;
+    border-bottom: 1px solid var(--cor-borda-suave);
+    font-size: 16px;
+    transition: background-color 0.2s, transform 0.2s ease;
+}
+
+/* Remove a borda do último item da lista */
+.lista-de-tarefas li:last-child {
+    border-bottom: none;
+}
+
+.lista-de-tarefas li:hover {
+    background-color: #fcfcfc;
+    transform: scale(1.01);
+}
+
+#lista-concluidas {
+    opacity: 0.7;
+}
+
+/* Estilo do item quando a tarefa está concluída */
+.lista-de-tarefas li.concluida .descricao-tarefa {
+    text-decoration: line-through;
+    color: #999;
+}
+
+.descricao-tarefa {
+    flex-grow: 1;
+    margin: 0 12px;
+}
+
+/* --- Botões de Ação (Concluir e Deletar) --- */
+.botoes {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.btn-concluir {
+    cursor: pointer;
+    width: 22px;
+    height: 22px;
+    accent-color: var(--cor-sucesso);
+    transition: transform 0.2s ease;
+}
+
+.btn-concluir:hover {
+    transform: scale(1.1);
+}
+
+.btn-deletar {
+    background-color: var(--cor-borda-suave);
+    color: var(--cor-secundaria);
+    border: none;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 28px;
+    text-align: center;
+    padding: 0;
+    transition: background-color 0.2s, color 0.2s, transform 0.2s ease;
+}
+
+.btn-deletar:hover {
+    background-color: var(--cor-perigo);
+    color: white;
+    transform: scale(1.1);
+}
+
+/* --- Contadores das Listas (Span) --- */
+h2 span {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--cor-secundaria);
+    margin-left: 8px;
+    background-color: var(--cor-fundo);
+    padding: 2px 8px;
+    border-radius: 6px;
+}
+
+/* --- Rodapé --- */
+#rodape {
+    text-align: center;
+    padding: 20px 0;
+    width: 100%;
+}
+
+#rodape hr {
+    width: 80%;
+    max-width: 600px;
+    border: 0;
+    border-top: 1px solid #e0e0e0;
+    margin: 0 auto 20px auto;
+}
+
+#rodape p {
+    font-size: 0.9rem;
+    color: #888;
+    margin: 0;
+}
+
+#rodape a {
+    color: var(--cor-secundaria); 
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#rodape a:hover {
+    text-decoration: underline;
+}
+
+/* --- Responsividade (Mobile) --- */
+@media (max-width: 600px) {
+    body {
+        padding: 20px 10px 0 10px;
+    }
+
+    .container {
+        padding: 24px;
+    }
+
+    .nova-tarefa {
+        flex-direction: column;
+    }
+    
+    #btn-adicionar {
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .lista-de-tarefas li {
+        padding: 14px 5px;
+    }
+}
+
+/* --- Estilos da Funcionalidade "Editar" --- */
+
+/* 1. Estiliza o novo container (input + botão salvar) */
+.edit-container {
+    display: flex;
+    flex-grow: 1; /* Faz ocupar todo o espaço do <span> */
+    align-items: center;
+    gap: 10px;
+}
+
+/* 2. Estiliza o input que aparece na edição */
+.edit-input {
+    flex-grow: 1;
+    padding: 10px 12px; /* Um pouco menor que o input principal */
+    border: 1px solid var(--cor-borda-suave);
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: 'Inter', Arial, sans-serif;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* 3. Adiciona o 'focus' azul (igual ao input principal) */
+.edit-input:focus {
+    outline: none;
+    border-color: var(--cor-primaria);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.3);
+}
+
+/* 4. Estiliza o botão "Salvar" (parecido com o "Adicionar") */
+.btn-salvar-edit {
+    padding: 10px 16px;
+    font-size: 14px; /* Um pouco menor */
+    font-weight: 600;
+    color: var(--cor-texto-claro); /* Texto branco */
+    background-color: var(--cor-primaria); /* Azul */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s ease;
+}
+
+.btn-salvar-edit:hover {
+    background-color: #0056b3; /* Azul escuro */
+    transform: scale(1.03);
+}
+
+/* 5. Estiliza o botão "Editar" (o lápis ✏️) */
+/* (Baseado no estilo do .btn-deletar para consistência) */
+.btn-editar {
+    background-color: var(--cor-borda-suave); /* Cinza claro */
+    color: var(--cor-secundaria); /* Texto cinza escuro */
+    border: none;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    font-size: 16px; /* Tamanho bom para o emoji */
+    cursor: pointer;
+    line-height: 28px; /* Centraliza o emoji */
+    text-align: center;
+    padding: 0;
+    transition: background-color 0.2s, color 0.2s, transform 0.2s ease;
+}
+
+/* 6. Adiciona o 'hover' azul no botão editar */
+.btn-editar:hover {
+    background-color: var(--cor-primaria); /* Fica azul */
+    color: white;
+    transform: scale(1.1);
+}
